@@ -4,7 +4,7 @@ import React from "react"
 const Calender = (props)=>{
     return(
         <>
-        <h1 className="text-center">Calender</h1>
+        <h2 className="text-center">Calender</h2>
         <div className="calenderdiv">
             
         </div>

@@ -6,7 +6,7 @@ const Inbox = ({ inboxitems }) => {
   const inboxlist = inboxitems.map((item) => <Item item={item} />);
   return (
     <>
-      <h1 className="text-center">Inbox</h1>
+      <h2 className="text-center">Inbox</h2>
       <div className="inboxdiv">{inboxlist}</div>
     </>
   );
