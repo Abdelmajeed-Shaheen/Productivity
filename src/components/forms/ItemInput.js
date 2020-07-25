@@ -1,7 +1,17 @@
-import React from "react"
+import React, { Component } from "react"
 
 
-const ItemInput = (props)=>{
+class ItemInput extends Component{
+  state={
+    item:""
+  }
+
+  onChange = item => {
+    this.setState({ item });
+  };
+
+  render(){
+    const { item } = this.state;
     return(
         <div>
           <form >
@@ -12,8 +22,8 @@ const ItemInput = (props)=>{
                 placeholder="Item...."
                 id="item"
                 name="item"
-                //value={item}
-                //onChange={e => this.onChange(e.target.value)}
+                value={item}
+                onChange={e => this.onChange(e.target.value)}
               />
               <div className="input-group-prepend">
                 <button className="input-group-text" id="basic-addon1">
@@ -26,5 +36,5 @@ const ItemInput = (props)=>{
         //
     )
 }
-
+}
 export default ItemInput
