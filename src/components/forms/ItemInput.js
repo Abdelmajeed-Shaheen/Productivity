@@ -1,20 +1,29 @@
 import React, { Component } from "react"
-
+import {connect} from "react-redux"
+import {addItem} from "../../redux/actions"
 
 class ItemInput extends Component{
   state={
-    item:""
+    item:"asdasd"
   }
 
   onChange = item => {
     this.setState({ item });
   };
 
+  handleSubmit = event => {
+    event.preventDefault();
+    if (this.state.item) {
+      this.props.addItem(this.state.item);
+      this.setState({ item: "" });
+    }
+  };
+
   render(){
     const { item } = this.state;
     return(
         <div>
-          <form >
+          <form onSubmit = {this.handleSubmit}>
             <div className="input-group">
               <input
                 type="text"
@@ -37,4 +46,9 @@ class ItemInput extends Component{
     )
 }
 }
-export default ItemInput
+const mapDispatchToProps = (dispatch)=>{
+  return{
+    addItem : (item)=> dispatch(addItem(item)),
+  }
+}
+export default connect(null,mapDispatchToProps)(ItemInput)
