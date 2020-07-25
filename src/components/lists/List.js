@@ -1,14 +1,12 @@
-import React from "react"
+import React from "react";
 
-
-const List = (props)=>{
-    return(
-        <>
-        <h1 className="text-center">List</h1>
-        <div className="listdiv">
-        </div>
-        </>
-    )
-}
+const List = (props) => {
+  return (
+    <>
+      <h1 className="text-center">List</h1>
+      <div className="listdiv"></div>
+    </>
+  );
+};
 
 export default List;

@@ -1,17 +1,17 @@
-import React, { Component } from "react"
-import {connect} from "react-redux"
-import {addItem} from "../../redux/actions"
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { addItem } from "../../redux/actions";
 
-class ItemInput extends Component{
-  state={
-    item:"asdasd"
-  }
+class ItemInput extends Component {
+  state = {
+    item: "",
+  };
 
-  onChange = item => {
+  onChange = (item) => {
     this.setState({ item });
   };
 
-  handleSubmit = event => {
+  handleSubmit = (event) => {
     event.preventDefault();
     if (this.state.item) {
       this.props.addItem(this.state.item);
@@ -19,36 +19,36 @@ class ItemInput extends Component{
     }
   };
 
-  render(){
+  render() {
     const { item } = this.state;
-    return(
-        <div>
-          <form onSubmit = {this.handleSubmit}>
-            <div className="input-group">
-              <input
-                type="text"
-                className="form-control"
-                placeholder="Item...."
-                id="item"
-                name="item"
-                value={item}
-                onChange={e => this.onChange(e.target.value)}
-              />
-              <div className="input-group-prepend">
-                <button className="input-group-text" id="basic-addon1">
-                  <i className=" fa fa-plus"> </i>
-                </button>
-              </div>
+    return (
+      <div>
+        <form onSubmit={this.handleSubmit}>
+          <div className="input-group">
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Item...."
+              id="item"
+              name="item"
+              value={item}
+              onChange={(e) => this.onChange(e.target.value)}
+            />
+            <div className="input-group-prepend">
+              <button className="input-group-text" id="basic-addon1">
+                <i className=" fa fa-plus"> </i>
+              </button>
             </div>
-          </form>
-        </div>
-        //
-    )
-}
-}
-const mapDispatchToProps = (dispatch)=>{
-  return{
-    addItem : (item)=> dispatch(addItem(item)),
+          </div>
+        </form>
+      </div>
+      //
+    );
   }
 }
-export default connect(null,mapDispatchToProps)(ItemInput)
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addItem: (item) => dispatch(addItem(item)),
+  };
+};
+export default connect(null, mapDispatchToProps)(ItemInput);
