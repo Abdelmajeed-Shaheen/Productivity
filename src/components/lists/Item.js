@@ -3,8 +3,12 @@ import { connect } from "react-redux";
 import { deleteItem } from "../../redux/actions";
 
 const Item = ({ item, deleteItem }) => {
+  let styleclass = item.done ? "alert alert-success" : "alert alert-warning"
+  if (item.cancel){
+    styleclass= "alert alert-danger"
+  }
   return (
-    <div className="alert alert-warning" role="alert">
+    <div className={styleclass} role="alert">
       {item.title}
       <span className="mx-2 text-danger">
         <i
