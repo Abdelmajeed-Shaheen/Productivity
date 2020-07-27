@@ -19,8 +19,12 @@ const reducer = (state = inistialState, action) => {
           ? action.payload.substring(2)
           : action.payload;
       const newItem = { title: item, done: done, cancel: cancel };
+      const regex = new RegExp(/#\w+/g);
+      const match = regex.exec(newItem.title);
       let newList = state.listList;
-      if (newItem.title.includes("#")) {
+      if (match) {
+        const proname = match[0];
+        newItem["proname"] = proname;
         newList = newList.concat(newItem);
         localStorage.setItem("listList", JSON.stringify(newList));
       }
@@ -31,6 +35,7 @@ const reducer = (state = inistialState, action) => {
         inboxList: newInbox,
         listList: newList,
       };
+
     case DELETE_ITEM:
       const deleteItem = action.payload;
       const InboxAfterDelete = state.inboxList.filter(
