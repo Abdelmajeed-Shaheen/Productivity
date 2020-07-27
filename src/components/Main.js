@@ -11,11 +11,6 @@ const Main = (props)=>{
         <>
         <Header/>
         <div  className="maindiv">
-            <div className="row my-4">
-                <div className="col-md-3"></div>
-                <div className="col-md-6"><ItemInput/></div>
-                <div className="col-md-3"></div>
-            </div>
             <div className = "row mt-3">
                 <div className="col-md-4">
                     <Inbox/>

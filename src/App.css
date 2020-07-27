@@ -1,13 +1,13 @@
 .inboxdiv {
-    height: 450px;
+    height: 500px;
     background-color: rgba(0, 188, 212, 0.3);
-    overflow-y: auto;
+    overflow-y: none;
     padding: 10px 10px 10px 10px;
     border-radius: 35px;
 }
 
 .listdiv {
-    height: 450px;
+    height: 500px;
     background-color: rgba(0, 150, 136, 0.3);
     overflow-y: auto;
     padding: 10px 10px 10px 10px;
@@ -15,7 +15,7 @@
 }
 
 .calenderdiv {
-    height: 450px;
+    height: 500px;
     background-color: rgba(3, 169, 181, 0.3);
     overflow-y: auto;
     padding: 10px 10px 10px 10px;
