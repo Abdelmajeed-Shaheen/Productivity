@@ -25,7 +25,7 @@ const Main = (props) => {
       <div className="float" 
            data-toggle="modal"
            data-target="#staticBackdrop">
-            <i class="fas fa-info my-float" ></i>
+            <i className="fas fa-info my-float" ></i>
         </div>
       <ModalShort />
     </>

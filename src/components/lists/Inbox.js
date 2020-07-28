@@ -4,7 +4,7 @@ import Item from "./Item";
 import ItemInput from "../forms/ItemInput";
 
 const Inbox = ({ inboxitems }) => {
-  const inboxlist = inboxitems.map((item) => <Item item={item} />);
+  const inboxlist = inboxitems.map((item) => <Item item={item} key={item.title+item.done}/>);
   return (
     <>
       <h2 className="text-center">Inbox</h2>
