@@ -10,7 +10,7 @@ const Main = (props) => {
     <>
       <Header />
       <div className="maindiv">
-        <div className="row mt-3">
+        <div className="row mt-3" style={{marginLeft:0,marginRight:0}}>
           <div className="col-md-4">
             <Inbox />
           </div>
@@ -20,16 +20,13 @@ const Main = (props) => {
           <div className="col-md-4">
             <Calender />
           </div>
-          <button
-            type="button"
-            className="btn btn-dark"
-            data-toggle="modal"
-            data-target="#staticBackdrop"
-          >
-            Shortcuts
-          </button>
         </div>
       </div>
+      <div className="float" 
+           data-toggle="modal"
+           data-target="#staticBackdrop">
+            <i class="fas fa-info my-float" ></i>
+        </div>
       <ModalShort />
     </>
   );
