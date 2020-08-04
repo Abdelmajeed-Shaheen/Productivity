@@ -10,7 +10,7 @@ const Main = (props) => {
     <>
       <Header />
       <div className="maindiv">
-        <div className="row mt-3" style={{marginLeft:0,marginRight:0}}>
+        <div className="row mt-3" style={{ marginLeft: 0, marginRight: 0 }}>
           <div className="col-md-4">
             <Inbox />
           </div>
@@ -22,11 +22,9 @@ const Main = (props) => {
           </div>
         </div>
       </div>
-      <div className="float" 
-           data-toggle="modal"
-           data-target="#staticBackdrop">
-            <i className="fas fa-info my-float" ></i>
-        </div>
+      <div className="float" data-toggle="modal" data-target="#staticBackdrop">
+        <i className="fas fa-info my-float"></i>
+      </div>
       <ModalShort />
     </>
   );

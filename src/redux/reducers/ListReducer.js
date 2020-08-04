@@ -1,4 +1,4 @@
-import { ADD_ITEM, DELETE_ITEM } from "../actions/actionTypes";
+import { ADD_ITEM, DELETE_ITEM, EDIT_ITEM } from "../actions/actionTypes";
 
 const inistialState = {
   inboxList: JSON.parse(localStorage.getItem("inboxList"))
@@ -50,6 +50,12 @@ const reducer = (state = inistialState, action) => {
         ...state,
         inboxList: InboxAfterDelete,
         listList: ListAfterDelete,
+      };
+    case EDIT_ITEM:
+      state.inboxList[action.payload.index].title = action.payload.val;
+      localStorage.setItem("inboxList", JSON.stringify(state.inboxList));
+      return {
+        ...state,
       };
     default:
       return {
