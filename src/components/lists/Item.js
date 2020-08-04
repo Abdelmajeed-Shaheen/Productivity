@@ -16,7 +16,16 @@ const Item = ({ item, deleteItem, editItem, index }) => {
 
   return (
     <div className={styleclass} role="alert">
-      <EdiText type="text" value={item.title} onSave={onSave} />
+      <EdiText
+        type="text"
+        value={item.title}
+        onSave={onSave}
+        submitOnEnter
+        cancelOnEscape
+        editButtonClassName="custom-edit-button"
+        editButtonContent="&#10000;"
+        viewContainerClassName="my-custom-view-wrapper"
+      />
       <span className="mx-2 text-danger">
         <i
           className="fas fa-trash-alt"
