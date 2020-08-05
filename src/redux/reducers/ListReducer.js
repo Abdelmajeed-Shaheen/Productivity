@@ -12,37 +12,30 @@ const inistialState = {
 const reducer = (state = inistialState, action) => {
   switch (action.type) {
     case ADD_ITEM:
-      const done = action.payload.startsWith("x ") ? true : false;
-      const cancel = action.payload.startsWith("~ ") ? true : false;
-      const item =
-        action.payload.startsWith("x ") || action.payload.startsWith("~ ")
-          ? action.payload.substring(2)
-          : action.payload;
-      const newItem = { title: item, done: done, cancel: cancel };
+      const newItem = action.payload;
       const regex = new RegExp(/#\w+/g);
       const match = regex.exec(newItem.title);
       let newList = state.listList;
       if (match) {
         const proname = match[0];
         newItem["proname"] = proname;
-        newList = newList.concat(newItem);
+        newList = [newItem,...newList];
         localStorage.setItem("listList", JSON.stringify(newList));
-      }
-      const newInbox = state.inboxList.concat(newItem);
+      } 
+      const newInbox = [newItem, ...state.inboxList];
       localStorage.setItem("inboxList", JSON.stringify(newInbox));
       return {
         ...state,
         inboxList: newInbox,
         listList: newList,
       };
-
     case DELETE_ITEM:
       const deleteItem = action.payload;
       const InboxAfterDelete = state.inboxList.filter(
-        (item) => item !== deleteItem
+        (item) => item.ID !== deleteItem.ID
       );
       const ListAfterDelete = state.listList.filter(
-        (item) => item !== deleteItem
+        (item) => item.ID !== deleteItem.ID
       );
       localStorage.setItem("inboxList", JSON.stringify(InboxAfterDelete));
       localStorage.setItem("listList", JSON.stringify(ListAfterDelete));

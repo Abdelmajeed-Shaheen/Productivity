@@ -1,9 +1,16 @@
 import { ADD_ITEM, DELETE_ITEM, EDIT_ITEM } from "./actionTypes";
 
-export const addItem = (item) => {
+export const addItem = (value) => {
+  const done = value.startsWith("x ") ? true : false;
+  const cancel = value.startsWith("~ ") ? true : false;
+  const title =
+        value.startsWith("x ") || value.startsWith("~ ")
+          ? value.substring(2)
+          : value;
+  const newItem = { ID:Date.now(),title: title, done: done, cancel: cancel };
   return {
     type: ADD_ITEM,
-    payload: item,
+    payload: newItem,
   };
 };
 
