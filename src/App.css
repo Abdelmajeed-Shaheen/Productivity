@@ -47,55 +47,10 @@ body {
 .my-float {
   margin-top: 16px;
 }
-/* EDIT */
-/* input field */
-input[editext="input"] {
-  color: #856404;
-  border-radius: 5px;
-}
-
-/* edit pen */
-button[editext="edit-button"] {
-  background: transparent;
+/* EDIT Box */
+.edit-style {
+  width: 100%;
+  margin: 8px 0;
   border: none;
-  font-size: 20px;
-  padding: 0px;
-  color: rgb(0, 128, 85);
-  font-weight: bold;
-}
-
-/* button[editext="edit-button"]:hover {
-  background: none;
-  cursor: default;
-} */
-
-.my-custom-view-wrapper div:last-child {
-  /* Here we are styling the button container. */
-  float: right;
-  margin-top: -25px;
-}
-
-/* check save btn */
-button[editext="save-button"] {
-  background: transparent;
-  border: none;
-  margin-top: 20px;
-  margin-right: -10px;
-  font-weight: bold;
-}
-button[editext="save-button"]:hover {
-  background: none;
-  cursor: default;
-}
-
-/* x cancel btn */
-button[editext="cancel-button"] {
-  background: transparent;
-  border: none;
-  margin-top: 20px;
-  font-weight: bold;
-}
-button[editext="cancel-button"]:hover {
-  background: none;
-  cursor: default;
+  border-radius: 4px;
 }

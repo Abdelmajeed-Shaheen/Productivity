@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { deleteItem, editItem } from "../../redux/actions";
-import EdiText from "react-editext";
+import ContentEditable from "react-contenteditable";
 
 const Item = ({ item, deleteItem, editItem, index }) => {
   let styleclass = item.done ? "alert alert-success" : "alert alert-warning";
@@ -9,22 +9,17 @@ const Item = ({ item, deleteItem, editItem, index }) => {
     styleclass = "alert alert-danger";
   }
 
-  const onSave = (val) => {
-    const newitem = { val: val, index: index };
+  const handleChange = (val) => {
+    const newitem = { val: val.target.value, index: index };
     editItem(newitem);
   };
 
   return (
     <div className={styleclass} role="alert">
-      <EdiText
-        type="text"
-        value={item.title}
-        onSave={onSave}
-        submitOnEnter
-        cancelOnEscape
-        editButtonClassName="custom-edit-button"
-        editButtonContent="&#10000;"
-        viewContainerClassName="my-custom-view-wrapper"
+      <ContentEditable
+        onChange={handleChange}
+        html={item.title}
+        className="edit-style"
       />
       <span className="mx-2 text-danger">
         <i

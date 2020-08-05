@@ -25,10 +25,10 @@ const reducer = (state = inistialState, action) => {
       if (match) {
         const proname = match[0];
         newItem["proname"] = proname;
-        newList = [newItem,...newList];
+        newList = newList.concat(newItem);
         localStorage.setItem("listList", JSON.stringify(newList));
       }
-      const newInbox = [newItem, ...state.inboxList];
+      const newInbox = state.inboxList.concat(newItem);
       localStorage.setItem("inboxList", JSON.stringify(newInbox));
       return {
         ...state,
