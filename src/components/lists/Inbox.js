@@ -3,9 +3,9 @@ import { connect } from "react-redux";
 import Item from "./Item";
 import ItemInput from "../forms/ItemInput";
 
-const Inbox = ({ inboxitems, handleEdit }) => {
+const Inbox = ({ inboxitems }) => {
   const inboxlist = inboxitems.map((item, index) => (
-    <Item item={item} index={index} handleEdit={() => handleEdit(item.id)} />
+    <Item item={item} index={index} />
   ));
   return (
     <>

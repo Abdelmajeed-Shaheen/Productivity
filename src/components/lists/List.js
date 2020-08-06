@@ -1,19 +1,19 @@
 import React from "react";
 import { connect } from "react-redux";
-import Item from "./Item";
+import Project from "./Project";
 
-const List = ({ listitems }) => {
-  const listList = listitems.map((item)=><Item item={item} key={item.title+item.done}/>)
+const List = ({ prolist }) => {
+  const projects = prolist.map((item)=><Project item = {item} key={item.ID}/>)
   return (
     <>
       <h2 className="text-center">List</h2>
-      <div className="listdiv">{listList}</div>
+      <div className="listdiv">{projects}</div>
     </>
   );
 };
 const mapStateToProps = (state) => {
   return {
-    listitems: state.listState.listList,
+    prolist: state.listState.projects,
   };
 };
 
