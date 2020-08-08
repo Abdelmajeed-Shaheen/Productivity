@@ -51,7 +51,6 @@ const reducer = (state = inistialState, action) => {
       const InboxAfterDelete = state.inboxList.filter(
         (item) => item.ID !== deleteItem.ID
       );
-      console.log(InboxAfterDelete)
       const anotheritemforpro = InboxAfterDelete.filter((item)=>(item.proID === deleteItem.proID))
       if(anotheritemforpro.length === 0 ){newprolist = newprolist.filter((item)=>(item.ID !== deleteItem.proID))}
       localStorage.setItem("inboxList", JSON.stringify(InboxAfterDelete));

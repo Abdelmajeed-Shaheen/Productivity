@@ -11,6 +11,12 @@ class ItemInput extends Component {
     this.setState({ item });
   };
 
+  onKeyPress = (event)=>{
+    if(event.charCode === 35){
+      console.log(this.props.projects)
+    }
+  }
+
   handleSubmit = (event) => {
     event.preventDefault();
     if (this.state.item) {
@@ -33,6 +39,7 @@ class ItemInput extends Component {
               name="item"
               value={item}
               onChange={(e) => this.onChange(e.target.value)}
+              onKeyPress={(e)=>this.onKeyPress(e)}
             />
             <div className="input-group-prepend">
               <button className="input-group-text" id="basic-addon1">
@@ -46,9 +53,16 @@ class ItemInput extends Component {
     );
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    projects: state.listState.projects,
+  };
+};
+
 const mapDispatchToProps = (dispatch) => {
   return {
     addItem: (item) => dispatch(addItem(item)),
   };
 };
-export default connect(null, mapDispatchToProps)(ItemInput);
+export default connect(mapStateToProps, mapDispatchToProps)(ItemInput);
