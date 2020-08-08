@@ -1,4 +1,4 @@
-import { ADD_ITEM, DELETE_ITEM, EDIT_ITEM } from "./actionTypes";
+import { ADD_ITEM, DELETE_ITEM, EDIT_ITEM, ORDER_ITEMS } from "./actionTypes";
 
 export const addItem = (value) => {
   const done = value.startsWith("x ") ? true : false;
@@ -25,5 +25,12 @@ export const editItem = (item) => {
   return {
     type: EDIT_ITEM,
     payload: item,
+  };
+};
+
+export const orderItems = (itemlist) => {
+  return {
+    type: ORDER_ITEMS,
+    payload: itemlist,
   };
 };

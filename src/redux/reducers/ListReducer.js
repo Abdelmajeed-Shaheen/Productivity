@@ -1,4 +1,4 @@
-import { ADD_ITEM, DELETE_ITEM, EDIT_ITEM } from "../actions/actionTypes";
+import { ADD_ITEM, DELETE_ITEM, EDIT_ITEM,ORDER_ITEMS } from "../actions/actionTypes";
 
 const inistialState = {
   inboxList: JSON.parse(localStorage.getItem("inboxList"))
@@ -12,7 +12,14 @@ const inistialState = {
 const reducer = (state = inistialState, action) => {
   switch (action.type) {
     case ADD_ITEM:
+      let ID = 0
+      state.inboxList.forEach(item => {
+        if (item.id > ID){
+          ID = item.id
+        }
+      }); 
       const newItem = action.payload;
+      newItem["id"] = ID+1
       const regex = new RegExp(/#\w+/g);
       const match = regex.exec(newItem.title);
       let prolist = state.projects
@@ -61,6 +68,12 @@ const reducer = (state = inistialState, action) => {
         ...state,
         inboxList:state.inboxList
       };
+    case ORDER_ITEMS:
+      localStorage.setItem("inboxList", JSON.stringify(action.payload));
+      return{
+        ...state,
+        inboxList:action.payload
+      }
     default:
       return {
         ...state,
