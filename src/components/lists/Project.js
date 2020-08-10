@@ -1,9 +1,8 @@
 import React from "react"
 import Item from "./Item"
-import {connect} from "react-redux"
 
-const Project = ({item ,inboxList})=>{
-    const listItems = inboxList.map((listitem,index) => (listitem.proID===item.ID&&<Item item = {listitem} index={index}/>))
+const Project = ({item , list, editItem})=>{
+    const listItems = list.map((listitem,index) => (listitem.proID===item.ID&&<Item item = {listitem} index={index} editItem={editItem}/>))
     return(
         <div>
             <h4>{item.name}</h4>
@@ -11,10 +10,5 @@ const Project = ({item ,inboxList})=>{
         </div>
     )
 }
-const mapStateToProps = (state) => {
-    return {
-        inboxList: state.listState.inboxList,
-    };
-  };
   
-  export default connect(mapStateToProps)(Project)
+  export default (Project)

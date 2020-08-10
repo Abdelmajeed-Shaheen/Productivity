@@ -1,4 +1,4 @@
-import { ADD_ITEM, DELETE_ITEM, EDIT_ITEM,ORDER_ITEMS } from "../actions/actionTypes";
+import { ADD_ITEM, DELETE_ITEM, EDIT_ITEM,ORDER_ITEMS, SEARCH } from "../actions/actionTypes";
 
 const inistialState = {
   inboxList: JSON.parse(localStorage.getItem("inboxList"))
@@ -73,6 +73,20 @@ const reducer = (state = inistialState, action) => {
         ...state,
         inboxList:action.payload
       }
+    case SEARCH:
+      if(action.payload){
+      const searchlist = JSON.parse(localStorage.getItem("inboxList")).filter((item)=>item.title.includes(action.payload))
+      return{
+        ...state,
+        inboxList:searchlist
+      }
+    }
+    else{
+      return{
+        ...state,
+        inboxList:JSON.parse(localStorage.getItem("inboxList"))
+      }
+    }
     default:
       return {
         ...state,

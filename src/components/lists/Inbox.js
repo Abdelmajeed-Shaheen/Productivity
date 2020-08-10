@@ -5,10 +5,8 @@ import Item from "./Item";
 import ItemInput from "../forms/ItemInput";
 import { orderItems } from "../../redux/actions";
 
-const Inbox = ({ inboxitems,orderItems }) => {
-  const inboxlist = inboxitems.map((item, index) => (
-    <Item item={item} index={index} />
-  ));
+const Inbox = ({ list,orderItems, add }) => {
+
   const handleRLDDChange= (newItems)=>{
     orderItems(newItems)
   }
@@ -18,11 +16,11 @@ const Inbox = ({ inboxitems,orderItems }) => {
 
       <div className="inboxdiv">
         <div style={{ padding: "5px" }}>
-          <ItemInput />
+          <ItemInput addItem={add}/>
         </div>
         <div style={{ overflowY: "auto", height: "420px", padding: "5px" }}>
         <RLDD
-          items={inboxitems}
+          items={list}
           itemRenderer={(item,index) => {
           return (
             <div className="item" ><Item item={item} index={index} /></div>
@@ -36,14 +34,10 @@ const Inbox = ({ inboxitems,orderItems }) => {
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    inboxitems: state.listState.inboxList,
-  };
-};
+
 const mapDispatchToProps = (dispatch) => {
   return {
     orderItems: (itemList) => dispatch(orderItems(itemList)),
   };
 };
-export default connect(mapStateToProps, mapDispatchToProps)(Inbox);
+export default connect(null, mapDispatchToProps)(Inbox);

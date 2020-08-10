@@ -3,6 +3,9 @@ import React ,{Component} from "react"
 
 class Search extends Component {
     render(){
+      const search = (e)=>{
+        this.props.search(e.target.value)
+      }
         return(
             <div>
           <div className="input-group">
@@ -12,6 +15,7 @@ class Search extends Component {
               placeholder="Search...."
               id="search"
               name="search"
+              onChange={search}
             />
             <div className="input-group-prepend">
               <span className="input-group-text" id="basic-addon1">

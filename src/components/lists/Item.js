@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { deleteItem, editItem } from "../../redux/actions";
+import { deleteItem } from "../../redux/actions";
 import ContentEditable from "react-contenteditable";
 
 const Item = ({ item, deleteItem, editItem, index }) => {
@@ -35,7 +35,6 @@ const Item = ({ item, deleteItem, editItem, index }) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     deleteItem: (item) => dispatch(deleteItem(item)),
-    editItem: (item) => dispatch(editItem(item)),
   };
 };
 

@@ -60,9 +60,5 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    addItem: (item) => dispatch(addItem(item)),
-  };
-};
-export default connect(mapStateToProps, mapDispatchToProps)(ItemInput);
+
+export default connect(mapStateToProps)(ItemInput);
