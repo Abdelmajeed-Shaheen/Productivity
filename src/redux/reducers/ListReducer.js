@@ -76,15 +76,18 @@ const reducer = (state = inistialState, action) => {
     case SEARCH:
       if(action.payload){
       const searchlist = JSON.parse(localStorage.getItem("inboxList")).filter((item)=>item.title.includes(action.payload))
+      const prosearch = JSON.parse(localStorage.getItem("prolist")).filter((item)=>item.name.includes(action.payload))
       return{
         ...state,
-        inboxList:searchlist
+        inboxList:searchlist,
+        projects:prosearch
       }
     }
     else{
       return{
         ...state,
-        inboxList:JSON.parse(localStorage.getItem("inboxList"))
+        inboxList:JSON.parse(localStorage.getItem("inboxList")),
+        projects:JSON.parse(localStorage.getItem("prolist"))
       }
     }
     default:
