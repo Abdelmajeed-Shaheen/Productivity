@@ -13,7 +13,7 @@ class Main extends Component {
   state = {
     itemList: this.props.list,
   };
-
+ 
   onDragEnd = (result) => {
     const { destination, source, draggableId } = result;
     if (!destination) {
@@ -22,17 +22,17 @@ class Main extends Component {
     if (destination.index === source.index) {
       return;
     }
-    console.log(result);
-    const changedItem = this.state.itemList.find(
+    const changedItem = this.props.list.find(
       (item) => String(item.ID) === draggableId
     );
-    const newArray = this.state.itemList.filter(
+    const newArray = this.props.list.filter(
       (item) => item.ID !== changedItem.ID
     );
-    console.log(newArray);
     newArray.splice(destination.index, 0, changedItem);
-    console.log(newArray);
     this.props.orderItems(newArray);
+    console.log(this.props.list);
+    console.log(newArray);
+    window.location.reload(true)
   };
 
   render() {

@@ -5,7 +5,7 @@ import ItemInput from "../forms/ItemInput";
 import { orderItems } from "../../redux/actions";
 import { Droppable } from "react-beautiful-dnd";
 
-const Inbox = ({ list, orderItems, add }) => {
+const Inbox = ({ list, editItem, add }) => {
   return (
     <Droppable droppableId="id-1" type="ITEM">
       {(provided) => (
@@ -17,7 +17,7 @@ const Inbox = ({ list, orderItems, add }) => {
             </div>
             <div style={{ overflowY: "auto", height: "420px", padding: "5px" }}>
               {list.map((item, index) => (
-                <Item item={item} index={index} />
+                <Item item={item} index={index} editItem={editItem}/>
               ))}
             </div>
           </div>
